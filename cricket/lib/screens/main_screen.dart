@@ -9,7 +9,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  int currentIndex = 1;
+  int currentIndex = 0;
   void changePage(index) {
     setState(() {
       currentIndex = index;
