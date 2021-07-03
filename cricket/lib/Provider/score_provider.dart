@@ -50,15 +50,78 @@ class ScoreProvider with ChangeNotifier {
       final jsonData = json.decode(response.body);
       // print(jsonData);
       List<String> score = jsonData.split("v");
-      String team1;
-      String score1;
-      String team2;
-      String score2;
+      // "team 1 scre v tem2 cd"
+      String team1 = "";
+      String score1 = "";
+      String team2 = "";
+      String score2 = "";
       if (score[0].contains("*")) {
+        // current team
         for (int i = 0; i < score[0].length; i++) {
-          // if(int.parse(score[0][i])> && )
+          List<String> temp = score[0].split(" ");
+          //"team1"
+          score1 = temp[temp.length - 1];
+          int size = temp.length - 1;
+          if (score1.split("/").length <= 1) {
+            score1 = "-";
+            size++;
+          }
+          for (int i = 0; i < size; i++) {
+            team1 += temp[i];
+          }
+        }
+        // other team
+        for (int i = 0; i < score[1].length; i++) {
+          List<String> temp = score[1].split(" ");
+          score2 = temp[temp.length - 1];
+          int size = temp.length - 1;
+          if (score2.split("/").length <= 1) {
+            score1 = "-";
+            size++;
+          }
+          for (int i = 0; i < size; i++) {
+            team2 += temp[i];
+          }
+        }
+      } else {
+        // other team
+        for (int i = 0; i < score[1].length; i++) {
+          List<String> temp = score[1].split(" ");
+          //"team1"
+          score1 = temp[temp.length - 1];
+          int size = temp.length - 1;
+          if (score1.split("/").length <= 1) {
+            score1 = "-";
+            size++;
+          }
+          for (int i = 0; i < size; i++) {
+            team1 += temp[i];
+          }
+        }
+
+        // current team
+        for (int i = 0; i < score[0].length; i++) {
+          List<String> temp = score[0].split(" ");
+          score2 = temp[temp.length - 1];
+          int size = temp.length - 1;
+          if (score2.split("/").length <= 1) {
+            score1 = "-";
+            size++;
+          }
+          for (int i = 0; i < size; i++) {
+            team2 += temp[i];
+          }
         }
       }
+      MatchDetail match = MatchDetail(
+        currentTeamScore: score1,
+        otherTeamScore: score2,
+        currentTeam: team1,
+        otherTeam: team2,
+        winner: _matchIdList[i][1],
+        matchId: _matchIdList[i][0],
+      );
+      _matchList.add(match);
 
       // print(jsonData);
       notifyListeners();

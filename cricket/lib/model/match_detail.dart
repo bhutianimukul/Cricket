@@ -3,8 +3,8 @@ class MatchDetail {
   String otherTeam;
   String currentTeamScore;
   String otherTeamScore;
-  bool matchStarted;
-  String time;
+  // bool matchStarted;
+  //String time;
   String winner;
   String matchId;
   MatchDetail({
@@ -12,8 +12,8 @@ class MatchDetail {
     required this.otherTeamScore,
     required this.currentTeam,
     required this.otherTeam,
-    required this.matchStarted,
-    required this.time,
+    // required this.matchStarted,
+    // required this.time,
     required this.winner,
     required this.matchId,
   });
