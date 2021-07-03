@@ -20,7 +20,7 @@ class ScoreProvider with ChangeNotifier {
     final jsonData = json.decode(response.body);
 
     List jsonDataMatch = jsonData["matches"];
-    print(jsonDataMatch);
+    // print(jsonDataMatch);
 
     for (int i = 0; i < jsonDataMatch.length; i++) {
       List<String> l = [];
@@ -39,17 +39,20 @@ class ScoreProvider with ChangeNotifier {
       }
     }
 
-    getScore();
+    await getScore();
   }
 
-  void getScore() async {
+  Future<void> getScore() async {
     for (int i = 0; i < _matchIdList.length; i++) {
       String url =
           "https://cricapi.com/api/cricketScore?apikey=EgZQBD8hhqPlR5AG1Yr20XpGmgB2&unique_id=${_matchIdList[i][0]}";
       final response = await http.get(Uri.parse(url));
       final jsonData = json.decode(response.body);
-      // print(jsonData);
-      List<String> score = jsonData.split("v");
+      //  print(jsonData);
+      if (jsonData["score"] == null) continue;
+      List<String> score = jsonData["score"].split("v");
+      //print(jsonData["score"]);
+      //print(score);
       // "team 1 scre v tem2 cd"
       String team1 = "";
       String score1 = "";
@@ -60,9 +63,9 @@ class ScoreProvider with ChangeNotifier {
         for (int i = 0; i < score[0].length; i++) {
           List<String> temp = score[0].split(" ");
           //"team1"
-          score1 = temp[temp.length - 1];
+          score1 = temp[temp.length - 2];
           int size = temp.length - 1;
-          if (score1.split("/").length <= 1) {
+          if (score1.split("/").length < 1) {
             score1 = "-";
             size++;
           }
@@ -75,7 +78,7 @@ class ScoreProvider with ChangeNotifier {
           List<String> temp = score[1].split(" ");
           score2 = temp[temp.length - 1];
           int size = temp.length - 1;
-          if (score2.split("/").length <= 1) {
+          if (score2.split("/").length < 1) {
             score1 = "-";
             size++;
           }
@@ -90,7 +93,7 @@ class ScoreProvider with ChangeNotifier {
           //"team1"
           score1 = temp[temp.length - 1];
           int size = temp.length - 1;
-          if (score1.split("/").length <= 1) {
+          if (score1.split("/").length < 1) {
             score1 = "-";
             size++;
           }
@@ -104,8 +107,8 @@ class ScoreProvider with ChangeNotifier {
           List<String> temp = score[0].split(" ");
           score2 = temp[temp.length - 1];
           int size = temp.length - 1;
-          if (score2.split("/").length <= 1) {
-            score1 = "-";
+          if (score2.split("/").length < 1) {
+            score2 = "-";
             size++;
           }
           for (int i = 0; i < size; i++) {
@@ -113,6 +116,8 @@ class ScoreProvider with ChangeNotifier {
           }
         }
       }
+
+      print(score1 + " " + score2);
       MatchDetail match = MatchDetail(
         currentTeamScore: score1,
         otherTeamScore: score2,
@@ -124,7 +129,9 @@ class ScoreProvider with ChangeNotifier {
       _matchList.add(match);
 
       // print(jsonData);
-      notifyListeners();
+
     }
+    print(_matchList);
+    notifyListeners();
   }
 }

@@ -1,4 +1,5 @@
-import 'package:cricket/screens/live_score_screen.dart';
+import 'package:cricket/screens/circular_progress_screen.dart';
+
 import 'package:cricket/screens/news_screen.dart';
 import 'package:fancy_bottom_navigation/fancy_bottom_navigation.dart';
 import "package:flutter/material.dart";
@@ -18,7 +19,7 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   final List<Widget> screens = [
-    LiveScoreScreen(),
+    CircularProgress(),
     NewsScreen(),
     Center(
       child: Text("More"),

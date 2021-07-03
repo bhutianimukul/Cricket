@@ -2,8 +2,8 @@ import 'package:cricket/model/match_detail.dart';
 import "package:flutter/material.dart";
 
 class CustomListTile extends StatelessWidget {
-  late MatchDetail obj;
-  CustomListTile(this.obj);
+  late MatchDetail match;
+  CustomListTile(this.match);
   bool matchStarted = false;
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class CustomListTile extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Text(
-                      "120/2*",
+                      match.currentTeamScore,
                       style: TextStyle(fontSize: 19),
                     ),
                     Text(
@@ -50,7 +50,7 @@ class CustomListTile extends StatelessWidget {
                       style: TextStyle(fontSize: 19),
                     ),
                     Text(
-                      "200/9",
+                      match.otherTeamScore,
                       style: TextStyle(fontSize: 19),
                     ),
                   ],
@@ -59,8 +59,7 @@ class CustomListTile extends StatelessWidget {
                   height: 8,
                 ),
                 Center(
-                  child:
-                      matchStarted ? Text("Winner TBA") : Text("Winner Team1"),
+                  child: Text(match.winner),
                 ),
               ],
             ),
