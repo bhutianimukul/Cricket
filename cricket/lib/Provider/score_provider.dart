@@ -60,61 +60,66 @@ class ScoreProvider with ChangeNotifier {
       String score2 = "";
       if (score[0].contains("*")) {
         // current team
-        for (int i = 0; i < score[0].length; i++) {
-          List<String> temp = score[0].split(" ");
-          //"team1"
-          score1 = temp[temp.length - 2];
-          int size = temp.length - 1;
-          if (score1.split("/").length < 1) {
-            score1 = "-";
-            size++;
-          }
-          for (int i = 0; i < size; i++) {
-            team1 += temp[i];
-          }
-        }
-        // other team
-        for (int i = 0; i < score[1].length; i++) {
-          List<String> temp = score[1].split(" ");
-          score2 = temp[temp.length - 1];
-          int size = temp.length - 1;
-          if (score2.split("/").length < 1) {
-            score1 = "-";
-            size++;
-          }
-          for (int i = 0; i < size; i++) {
-            team2 += temp[i];
-          }
-        }
+        // for (int i = 0; i < score[0].length; i++) {
+        //   List<String> temp = score[0].split(" ");
+        //   //"team1"
+        //   score1 = temp[temp.length - 2];
+        //   int size = temp.length - 1;
+        //   if (score1.split("/").length < 1) {
+        //     score1 = "-";
+        //     size++;
+        //   }
+        //   for (int i = 0; i < size; i++) {
+        //     team1 += temp[i];
+        //   }
+        // }
+        // // other team
+        // for (int i = 0; i < score[1].length; i++) {
+        //   List<String> temp = score[1].split(" ");
+        //   score2 = temp[temp.length - 1];
+        //   int size = temp.length - 1;
+        //   if (score2.split("/").length < 1) {
+        //     score1 = "-";
+        //     size++;
+        //   }
+        //   for (int i = 0; i < size; i++) {
+        //     team2 += temp[i];
+        //   }
+        // }
+
+        score1 = score[0];
+        score2 = score[1];
       } else {
         // other team
-        for (int i = 0; i < score[1].length; i++) {
-          List<String> temp = score[1].split(" ");
-          //"team1"
-          score1 = temp[temp.length - 1];
-          int size = temp.length - 1;
-          if (score1.split("/").length < 1) {
-            score1 = "-";
-            size++;
-          }
-          for (int i = 0; i < size; i++) {
-            team1 += temp[i];
-          }
-        }
+        // for (int i = 0; i < score[1].length; i++) {
+        //   List<String> temp = score[1].split(" ");
+        //   //"team1"
+        //   score1 = temp[temp.length - 1];
+        //   int size = temp.length - 1;
+        //   if (score1.split("/").length < 1) {
+        //     score1 = "-";
+        //     size++;
+        //   }
+        //   for (int i = 0; i < size; i++) {
+        //     team1 += temp[i];
+        //   }
+        // }
 
-        // current team
-        for (int i = 0; i < score[0].length; i++) {
-          List<String> temp = score[0].split(" ");
-          score2 = temp[temp.length - 1];
-          int size = temp.length - 1;
-          if (score2.split("/").length < 1) {
-            score2 = "-";
-            size++;
-          }
-          for (int i = 0; i < size; i++) {
-            team2 += temp[i];
-          }
-        }
+        // // current team
+        // for (int i = 0; i < score[0].length; i++) {
+        //   List<String> temp = score[0].split(" ");
+        //   score2 = temp[temp.length - 1];
+        //   int size = temp.length - 1;
+        //   if (score2.split("/").length < 1) {
+        //     score2 = "-";
+        //     size++;
+        //   }
+        //   for (int i = 0; i < size; i++) {
+        //     team2 += temp[i];
+        //   }
+        // }
+        score2 = score[0];
+        score1 = score[1];
       }
 
       print(score1 + " " + score2);
