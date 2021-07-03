@@ -88,7 +88,11 @@ class ScoreProvider with ChangeNotifier {
         // }
 
         score1 = score[0];
+        List<String> temp = score1.split(" ");
+        team1 = temp[0];
         score2 = score[1];
+        List<String> temp1 = score2.split(" ");
+        team2 = temp[0];
       } else {
         // other team
         // for (int i = 0; i < score[1].length; i++) {
@@ -118,8 +122,13 @@ class ScoreProvider with ChangeNotifier {
         //     team2 += temp[i];
         //   }
         // }
+
         score2 = score[0];
+        List<String> temp = score2.split(" ");
+        team2 = temp[0];
         score1 = score[1];
+        List<String> temp1 = score1.split(" ");
+        team1 = temp[0];
       }
 
       print(score1 + " " + score2);

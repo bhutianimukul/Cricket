@@ -25,13 +25,13 @@ class CustomListTile extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     CircleAvatar(
-                      radius: 30,
+                      radius: 20,
                     ),
                     // SizedBox(width: 10),
                     Text("V/S"),
                     // SizedBox(width: 10),
                     CircleAvatar(
-                      radius: 30,
+                      radius: 20,
                     ),
                   ],
                 ),
@@ -41,17 +41,25 @@ class CustomListTile extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text(
-                      match.currentTeamScore,
-                      style: TextStyle(fontSize: 19),
+                    Flexible(
+                      fit: FlexFit.loose,
+                      child: Text(match.currentTeamScore,
+                          style: TextStyle(fontSize: 15),
+                          softWrap: false,
+                          overflow: TextOverflow.ellipsis),
                     ),
                     Text(
                       "-",
                       style: TextStyle(fontSize: 19),
                     ),
-                    Text(
-                      match.otherTeamScore,
-                      style: TextStyle(fontSize: 19),
+                    Flexible(
+                      fit: FlexFit.loose,
+                      child: Text(
+                        match.otherTeamScore,
+                        style: TextStyle(fontSize: 15),
+                        softWrap: false,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
                   ],
                 ),

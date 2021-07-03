@@ -13,18 +13,21 @@ class LiveScoreScreen extends StatelessWidget {
           //  first match score by time
 
           Container(
-              // width: double.infinity,
-              // height: MediaQuery.of(context).size.height * .24,
-              // padding: EdgeInsets.all(10),
-              // // decoration: BoxDecoration(borderRadius: BorderRadius.),
-              // child: Column(
-              //   crossAxisAlignment: CrossAxisAlignment.start,
-              //   children: [
-              //     Text("Live Score"),
-              //     CustomListTile(match[0]),
-              //   ],
-              // ),
-              ),
+            width: double.infinity,
+            height: MediaQuery.of(context).size.height * .215,
+            padding: EdgeInsets.all(10),
+            // decoration: BoxDecoration(borderRadius: BorderRadius.),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Live Score",
+                  style: TextStyle(fontSize: 20),
+                ),
+                CustomListTile(match[0]),
+              ],
+            ),
+          ),
           //
           Expanded(
             child: Container(
