@@ -1,4 +1,5 @@
 import 'package:cricket/model/news.dart';
+import 'package:cricket/screens/news_detail_screen.dart';
 import 'package:flutter/material.dart';
 
 class GlobalNewsTile extends StatelessWidget {
@@ -46,8 +47,8 @@ class GlobalNewsTile extends StatelessWidget {
           ),
           TextButton(
             onPressed: () {
-              // Navigator.pushNamed(context, NewsDetailScreen.routeName,
-              //     arguments: item);
+              Navigator.pushNamed(context, NewsDetailScreen.routeName,
+                  arguments: item);
             },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,

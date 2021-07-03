@@ -1,30 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:tcard/tcard.dart';
 
-import '../model/news.dart';
-import 'Global_news_tile.dart';
-
-class SwapCard extends StatelessWidget {
+// ignore: must_be_immutable
+class SwapCard extends StatefulWidget {
   final title;
+  List<Widget> cards = [];
   SwapCard({
     this.title,
-    required this.items,
+    required this.cards,
   });
 
-  List<News> items = [];
+  @override
+  _SwapCardState createState() => _SwapCardState();
+}
 
-  List<Widget> cards = [];
+class _SwapCardState extends State<SwapCard> {
+  bool isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    for (int i = 0; i < items.length; i++) {
-      cards.add(GlobalNewsTile(
-        item: items[i],
-      ));
-    }
-    print(cards);
-    print(items);
-    TCardController _controller = TCardController();
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.green.shade200,
@@ -38,7 +37,7 @@ class SwapCard extends StatelessWidget {
                 color: Colors.black,
                 child: Center(
                   child: Text(
-                    title,
+                    widget.title,
                     style: TextStyle(
                       fontSize: 46,
                       fontWeight: FontWeight.w900,
@@ -63,10 +62,12 @@ class SwapCard extends StatelessWidget {
               //   ),
               //   totalNum: items.length,
               // ),
-              child: TCard(
-                cards: cards,
-                size: Size(400, 600),
-              ),
+              child: widget.cards.length == 0
+                  ? CircularProgressIndicator()
+                  : TCard(
+                      cards: widget.cards,
+                      size: Size(400, 600),
+                    ),
             ),
             Expanded(
               child: Row(

@@ -23,7 +23,7 @@ class NewsProvider with ChangeNotifier {
             element["title"].length != 0 &&
             element["description"].length != 0) {
           _newsList.add(News(
-              author: element["author"],
+              author: "",
               publishedAt: DateTime.parse(element['publishedAt']),
               url: element["url"],
               title: element["title"],
