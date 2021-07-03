@@ -2,7 +2,7 @@ import 'package:cricket/model/match_detail.dart';
 import "package:flutter/material.dart";
 
 class CustomListTile extends StatelessWidget {
-  Map<String?, String> map = {
+  final Map<String?, String> map = {
     "india":
         "https://qph.fs.quoracdn.net/main-qimg-e02c4087ee03602df50ad2a98b0fe261",
     "australia":
@@ -21,7 +21,7 @@ class CustomListTile extends StatelessWidget {
     "zimbabwe":
         "https://www.logolynx.com/images/logolynx/9c/9cf03974986d6175eb473db8a070e180.jpeg",
   };
-  String defaultImageUrl =
+  final String defaultImageUrl =
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_dmLCyf1S3x-cb98j9cJrURFB_XitfL3hefPuCOofudQCnILKC9iHxhY8D5uMxcel9zI&usqp=CAU";
   late MatchDetail match;
   CustomListTile(this.match);
