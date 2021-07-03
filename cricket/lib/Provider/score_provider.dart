@@ -11,7 +11,7 @@ class ScoreProvider with ChangeNotifier {
     return [..._matchList];
   }
 
-  void fetchData() async {
+  Future<void> fetchData() async {
     _matchList.clear();
     _matchIdList.clear();
     String url =
@@ -38,6 +38,7 @@ class ScoreProvider with ChangeNotifier {
         break;
       }
     }
+
     getScore();
   }
 
@@ -60,6 +61,7 @@ class ScoreProvider with ChangeNotifier {
       }
 
       // print(jsonData);
+      notifyListeners();
     }
   }
 }
