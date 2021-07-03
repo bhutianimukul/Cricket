@@ -59,27 +59,26 @@ class ScoreProvider with ChangeNotifier {
       String team2 = "";
       String score2 = "";
       if (score[0].contains("*")) {
-        // team1 130/4*
+        // team1 123/3* v team2 1234/5
+
         score1 = score[0];
-        List<String> temp = score1.split(" ");
-        team1 = temp[0];
         score2 = score[1];
-        List<String> temp1 = score2.split(" ");
-        team2 = temp1[0];
+        //print(score2);
+        team1 = score[0].split(" ")[0];
+        team2 = score[1].split(" ")[1];
+        print(score1.split(" "));
       } else if (score[1].contains("*")) {
-        score2 = score[0];
-        List<String> temp = score2.split(" ");
-        team2 = temp[0];
         score1 = score[1];
-        List<String> temp1 = score1.split(" ");
-        team1 = temp1[0];
+        score2 = score[0];
+        team1 = score[1].split(" ")[1];
+        team2 = score[0].split(" ")[0];
+        print(score1.split(" "));
       } else {
         score1 = score[0];
-        List<String> temp = score1.split(" ");
-        team1 = temp[0];
         score2 = score[1];
-        List<String> temp1 = score2.split(" ");
-        team2 = temp1[0];
+        team1 = score[0].split(" ")[0];
+        team2 = score[1].split(" ")[1];
+        print(score1.split(" "));
       }
 
       // print(score1 + " " + score2);

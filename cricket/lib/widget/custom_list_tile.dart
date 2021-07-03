@@ -68,8 +68,10 @@ class CustomListTile extends StatelessWidget {
                   children: [
                     CircleAvatar(
                       radius: 20,
-                      child: Image(
-                        image: NetworkImage(src1.toString()),
+                      child: ClipOval(
+                        child: Image(
+                          image: NetworkImage(src1.toString()),
+                        ),
                       ),
                     ),
                     // SizedBox(width: 10),
@@ -77,8 +79,10 @@ class CustomListTile extends StatelessWidget {
                     // SizedBox(width: 10),
                     CircleAvatar(
                       radius: 20,
-                      child: Image(
-                        image: NetworkImage(src2.toString()),
+                      child: ClipOval(
+                        child: Image(
+                          image: NetworkImage(src2.toString()),
+                        ),
                       ),
                     ),
                   ],
