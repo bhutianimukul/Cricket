@@ -10,6 +10,7 @@ import 'package:provider/provider.dart';
 
 import 'Provider/NewsProvider.dart';
 import 'Provider/rank_provider.dart';
+import 'Provider/venue_provider.dart';
 
 void main() => runApp(MyApp());
 
@@ -23,7 +24,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<NewsProvider>(
             create: (BuildContext context) => NewsProvider()),
         ChangeNotifierProvider<RankProvider>(
-            create: (BuildContext context) => RankProvider())
+            create: (BuildContext context) => RankProvider()),
+        ChangeNotifierProvider<VenueProvider>(
+            create: (BuildContext context) => VenueProvider())
       ],
       child: MaterialApp(
         home: MainScreen(),
