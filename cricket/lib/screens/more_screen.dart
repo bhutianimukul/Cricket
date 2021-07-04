@@ -1,5 +1,6 @@
 import 'package:cricket/screens/ranking_screen.dart';
 import 'package:cricket/screens/ranking_screen_women.dart';
+import 'package:cricket/screens/stadiums_screen.dart';
 import "package:flutter/material.dart";
 
 class MoreScreen extends StatelessWidget {
@@ -18,7 +19,7 @@ class MoreScreen extends StatelessWidget {
       children: [
         tile("ICC Ranking Men", RankingScreen.routeName),
         tile("ICC Ranking Women", RankingWomenScreen.routeName),
-        tile("Venue", RankingScreen.routeName),
+        tile("Venue", StadiumScreen.routeName),
         tile("Player Search", RankingScreen.routeName),
       ],
     );
