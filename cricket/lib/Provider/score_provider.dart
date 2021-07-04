@@ -125,7 +125,7 @@ class ScoreProvider with ChangeNotifier {
             team1 == "south africa" ||
             team1 == "bangladesh" ||
             team1 == "new zealand" ||
-            team1 == "west indies" ||
+            team1 == "sri lanka" ||
             team1 == "zimbabwe") {
           if (team2 == "india" ||
               team2 == "pakistan" ||
@@ -133,8 +133,8 @@ class ScoreProvider with ChangeNotifier {
               team2 == "australia" ||
               team2 == "bangladesh" ||
               team2 == "new zealand" ||
-              team2 == "west indies" ||
               team2 == "south africa" ||
+              team2 == "sri lanka" ||
               team2 == "zimbabwe") {
             String team1Flag = getFlag(team1);
             String team2Flag = getFlag(team2);
@@ -157,13 +157,13 @@ class ScoreProvider with ChangeNotifier {
 
   String getFlag(name) {
     if (name == "england")
-      return "https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1200px-Flag_of_the_United_Kingdom.svg.png";
-    if (name == "west indies")
-      return "https://upload.wikimedia.org/wikipedia/en/6/65/West_indies_cricket_board_flag.png";
+      return "https://www.worldometers.info/img/flags/uk-flag.gif";
+    if (name == "sri lanka")
+      return "https://www.worldometers.info/img/flags/ce-flag.gif";
     if (name == "australia")
       return "https://www.worldometers.info/img/flags/as-flag.gif";
     if (name == "india")
-      return "https://images.unsplash.com/photo-1597058712635-3182d1eacc1e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW5kaWElMjBmbGFnfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60";
+      return "https://www.worldometers.info/img/flags/in-flag.gif";
     if (name == "pakistan")
       return "https://www.worldometers.info/img/flags/pk-flag.gif";
     if (name == "south africa")

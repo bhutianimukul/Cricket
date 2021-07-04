@@ -24,13 +24,9 @@ class _UpcomingTileState extends State<UpcomingTile> {
         : Container(
             child: Column(
               children: [
-                Image(
-                  image: NetworkImage(widget.team1),
-                ),
+                Image.network(widget.team1),
                 Text("kkkkkkkk"),
-                Image(
-                  image: NetworkImage(widget.team2),
-                ),
+                Image.network(widget.team2),
               ],
             ),
           );
