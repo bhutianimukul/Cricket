@@ -35,22 +35,21 @@ class _StadiumScreenState extends State<StadiumScreen> {
 
   @override
   Widget build(BuildContext context) {
+    print(stadium);
     return MaterialApp(
       home: Scaffold(
+        appBar: AppBar(
+          title: Text("Stadiums"),
+        ),
         body: isLoading
             ? Center(
                 child: CircularProgressIndicator(),
               )
-            : GridView.builder(
+            : ListView.builder(
                 itemCount: stadium.length,
-                gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                  childAspectRatio: 3 / 2,
-                  maxCrossAxisExtent: 200,
-                  crossAxisSpacing: 20,
-                  mainAxisExtent: 20,
-                ),
-                itemBuilder: (_, index) => StadiumWidget(stadium[index]),
-              ),
+                itemBuilder: (BuildContext ctx, index) {
+                  return StadiumWidget(stadium[index]);
+                }),
       ),
     );
   }

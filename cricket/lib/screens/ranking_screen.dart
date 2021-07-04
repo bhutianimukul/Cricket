@@ -45,6 +45,7 @@ class _RankingScreenState extends State<RankingScreen> {
           odirank: odirank,
           t20rank: t20rank,
           testrank: testrank,
+          title: "ICC Men Ranking",
         ),
       ),
     );

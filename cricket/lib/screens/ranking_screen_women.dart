@@ -45,6 +45,7 @@ class _RankingWomenScreenState extends State<RankingWomenScreen> {
           odirank: odirank,
           t20rank: t20rank,
           testrank: testrank,
+          title: "ICC Women Ranking",
         ),
       ),
     );

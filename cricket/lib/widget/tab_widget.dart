@@ -6,12 +6,13 @@ class TabWidget extends StatelessWidget {
   List odirank = [];
   List t20rank = [];
   List testrank = [];
-
+  String title = "";
   TabWidget({
     required this.isLoading,
     required this.odirank,
     required this.t20rank,
     required this.testrank,
+    required this.title,
   });
 
   @override
@@ -37,7 +38,9 @@ class TabWidget extends StatelessWidget {
                     )
                   ],
                 ),
-                title: Center(child: Text("Rankings")),
+                title: Center(
+                  child: Text(title),
+                ),
               ),
               body: TabBarView(
                 children: [

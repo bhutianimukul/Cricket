@@ -16,15 +16,20 @@ class VenueProvider with ChangeNotifier {
     final jsonData = json.decode(response.body);
     final result = jsonData["data"] as List;
     for (int i = 0; i < result.length; i++) {
-      Venue v = new Venue(
-          capacity: result[i]["capacity"] == null
-              ? "-"
-              : result[i]["capacity"].toString(),
-          name: result[i]["name"],
-          location: result[i]["city"],
-          imageUrl: result[i]["image_path"]);
-      _venueList.add(v);
+      int id = result[i]["id"];
+      if (result[i]["image_path"].substring(result[i]["image_path"].length - 3,
+              result[i]["image_path"].length) !=
+          "com") {
+        String path = result[i]["image_path"];
+        Venue v = new Venue(
+            capacity: result[i]["capacity"].toString(),
+            name: result[i]["name"],
+            location: result[i]["city"],
+            imageUrl: path);
+        _venueList.add(v);
+      }
     }
+    print(_venueList);
     notifyListeners();
   }
 }
