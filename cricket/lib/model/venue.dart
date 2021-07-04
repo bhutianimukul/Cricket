@@ -2,7 +2,7 @@ class Venue {
   String imageUrl;
   String name;
   String location;
-  int capacity;
+  String capacity;
   Venue({
     required this.capacity,
     required this.name,

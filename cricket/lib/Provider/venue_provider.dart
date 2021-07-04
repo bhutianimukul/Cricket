@@ -17,7 +17,9 @@ class VenueProvider with ChangeNotifier {
     final result = jsonData["data"] as List;
     for (int i = 0; i < result.length; i++) {
       Venue v = new Venue(
-          capacity: result[i]["capacity"],
+          capacity: result[i]["capacity"] == null
+              ? "-"
+              : result[i]["capacity"].toString(),
           name: result[i]["name"],
           location: result[i]["city"],
           imageUrl: result[i]["image_path"]);

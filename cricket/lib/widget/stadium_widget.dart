@@ -1,8 +1,9 @@
+import 'package:cricket/model/venue.dart';
 import 'package:flutter/material.dart';
 
 class StadiumWidget extends StatelessWidget {
-  const StadiumWidget({Key? key}) : super(key: key);
-
+  late Venue stadium;
+  StadiumWidget(this.stadium);
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -20,7 +21,7 @@ class StadiumWidget extends StatelessWidget {
                 topRight: Radius.circular(15),
               ),
               child: Image.network(
-                "https://qph.fs.quoracdn.net/main-qimg-e02c4087ee03602df50ad2a98b0fe261",
+                stadium.imageUrl,
                 height: 250,
                 width: double.infinity,
                 fit: BoxFit.cover,
@@ -39,7 +40,7 @@ class StadiumWidget extends StatelessWidget {
                       SizedBox(
                         width: 6,
                       ),
-                      Text("India"),
+                      Text(stadium.name),
                     ],
                   ),
                   Row(
@@ -50,7 +51,7 @@ class StadiumWidget extends StatelessWidget {
                       SizedBox(
                         width: 6,
                       ),
-                      Text("capacity"),
+                      Text(stadium.capacity == null ? "-" : stadium.capacity),
                     ],
                   ),
                 ],
@@ -64,7 +65,7 @@ class StadiumWidget extends StatelessWidget {
                 horizontal: 20,
               ),
               child: Text(
-                "Location",
+                stadium.location,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 20,
