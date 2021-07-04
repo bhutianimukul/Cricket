@@ -49,19 +49,6 @@ class _SwapCardState extends State<SwapCard> {
             ),
             Expanded(
               flex: 10,
-              // child: TinderSwapCard(
-              //   orientation: AmassOrientation.RIGHT,
-              //   stackNum: 4,
-              //   maxWidth: MediaQuery.of(context).size.width,
-              //   maxHeight: MediaQuery.of(context).size.height * .8,
-              //   minHeight: MediaQuery.of(context).size.height * .5,
-              //   minWidth: MediaQuery.of(context).size.width * 0.5,
-              //   cardBuilder: (BuildContext context, int index) =>
-              //       GlobalNewsTile(
-              //     item: items[index],
-              //   ),
-              //   totalNum: items.length,
-              // ),
               child: widget.cards.length == 0
                   ? CircularProgressIndicator()
                   : TCard(
