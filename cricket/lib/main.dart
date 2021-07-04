@@ -11,6 +11,7 @@ import 'package:provider/provider.dart';
 import 'Provider/NewsProvider.dart';
 import 'Provider/rank_provider.dart';
 import 'Provider/venue_provider.dart';
+import 'screens/upcoming_matches_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
           RankingScreen.routeName: (_) => RankingScreen(),
           RankingWomenScreen.routeName: (_) => RankingWomenScreen(),
           StadiumScreen.routeName: (_) => StadiumScreen(),
+          Upcoming.routeName: (_) => Upcoming()
         },
       ),
     );

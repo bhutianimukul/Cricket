@@ -26,6 +26,7 @@ class _CircularProgressState extends State<CircularProgress> {
     setState(() {
       isLoaded = false;
     });
+
     await pro.fetchData();
     match = pro.matchList;
     setState(() {

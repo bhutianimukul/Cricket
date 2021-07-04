@@ -3,6 +3,8 @@ import 'package:cricket/screens/ranking_screen_women.dart';
 import 'package:cricket/screens/stadiums_screen.dart';
 import "package:flutter/material.dart";
 
+import 'upcoming_matches_screen.dart';
+
 class MoreScreen extends StatelessWidget {
   static const rountName = "/more";
 
@@ -17,6 +19,7 @@ class MoreScreen extends StatelessWidget {
 
     return Column(
       children: [
+        tile("Upcoming Fixtures", Upcoming.routeName),
         tile("ICC Ranking Men", RankingScreen.routeName),
         tile("ICC Ranking Women", RankingWomenScreen.routeName),
         tile("Venue", StadiumScreen.routeName),

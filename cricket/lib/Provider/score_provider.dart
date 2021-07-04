@@ -1,3 +1,4 @@
+import 'package:cricket/model/match.dart';
 import 'package:cricket/model/match_detail.dart';
 import 'package:flutter/cupertino.dart';
 import "package:http/http.dart" as http;
@@ -5,10 +6,15 @@ import "dart:convert";
 
 class ScoreProvider with ChangeNotifier {
   List<MatchDetail> _matchList = [];
+  List<Match> _upMatchList = [];
   List<List<String>> _matchIdList = [];
 
   List<MatchDetail> get matchList {
     return [..._matchList];
+  }
+
+  List<Match> get upMatchList {
+    return [..._upMatchList];
   }
 
   Future<void> fetchData() async {
@@ -98,5 +104,76 @@ class ScoreProvider with ChangeNotifier {
 
     //  print(_matchList);
     notifyListeners();
+  }
+
+  Future<void> upcomingMatches() async {
+    String url =
+        "https://cricapi.com/api/matches/?apikey=EgZQBD8hhqPlR5AG1Yr20XpGmgB2";
+    final response = await http.get(Uri.parse(url));
+    final jsonData = json.decode(response.body);
+
+    List jsonDataMatch = jsonData["matches"];
+    for (int i = 0; i < jsonDataMatch.length; i++) {
+      if (jsonDataMatch[i]["matchStarted"] == false) {
+        String team1 = jsonDataMatch[i]["team-1"].toLowerCase();
+        String team2 = jsonDataMatch[i]["team-2"].toLowerCase();
+
+        if (team1 == "india" ||
+            team1 == "pakistan" ||
+            team1 == "england" ||
+            team1 == "australia" ||
+            team1 == "south africa" ||
+            team1 == "bangladesh" ||
+            team1 == "new zealand" ||
+            team1 == "west indies" ||
+            team1 == "zimbabwe") {
+          if (team2 == "india" ||
+              team2 == "pakistan" ||
+              team2 == "england" ||
+              team2 == "australia" ||
+              team2 == "bangladesh" ||
+              team2 == "new zealand" ||
+              team2 == "west indies" ||
+              team2 == "south africa" ||
+              team2 == "zimbabwe") {
+            String team1Flag = getFlag(team1);
+            String team2Flag = getFlag(team2);
+
+            Match m = Match(
+                team1Flag: team1Flag,
+                team2Flag: team2Flag,
+                team1: team1,
+                team2: team2,
+                date: jsonDataMatch[i]["date"],
+                winner: "-",
+                type: jsonDataMatch[i]["type"]);
+            _upMatchList.add(m);
+          }
+        }
+      }
+    }
+    notifyListeners();
+  }
+
+  String getFlag(name) {
+    if (name == "england")
+      return "https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1200px-Flag_of_the_United_Kingdom.svg.png";
+    if (name == "west indies")
+      return "https://upload.wikimedia.org/wikipedia/en/6/65/West_indies_cricket_board_flag.png";
+    if (name == "australia")
+      return "https://www.worldometers.info/img/flags/as-flag.gif";
+    if (name == "india")
+      return "https://images.unsplash.com/photo-1597058712635-3182d1eacc1e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW5kaWElMjBmbGFnfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60";
+    if (name == "pakistan")
+      return "https://www.worldometers.info/img/flags/pk-flag.gif";
+    if (name == "south africa")
+      return "https://www.worldometers.info/img/flags/sf-flag.gif";
+    if (name == "bangladesh")
+      return "https://www.worldometers.info/img/flags/bg-flag.gif";
+    if (name == "zimbabwe")
+      return "https://www.worldometers.info/img/flags/zi-flag.gif";
+    if (name == "new zealand")
+      return "https://www.worldometers.info/img/flags/nz-flag.gif";
+    return "https://images.unsplash.com/photo-1599982917650-21da4d09c437?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjN8fGNyaWNrZXR8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60";
   }
 }

@@ -15,7 +15,7 @@ class NewsProvider with ChangeNotifier {
         "https://newsapi.org/v2/everything?q=cricket AND Cricket AND game&apiKey=13f96319dae94b739e554e8dad8d676a&qInTitle=Cricket AND Sports";
     final response = await http.get(Uri.parse(url));
     final jsonData = json.decode(response.body);
-    print(jsonData);
+
     if (jsonData['status'] == 'ok') {
       jsonData['articles'].forEach((element) {
         if (element['urlToImage'].length != 0 &&
