@@ -20,6 +20,8 @@ class CustomListTile extends StatelessWidget {
         "https://upload.wikimedia.org/wikipedia/en/thumb/3/35/New_Zealand_Cricket_Cap_Insignia.svg/1200px-New_Zealand_Cricket_Cap_Insignia.svg.png",
     "zimbabwe":
         "https://www.logolynx.com/images/logolynx/9c/9cf03974986d6175eb473db8a070e180.jpeg",
+    "south":
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTl5kJCC0_Xx4fAxSQa0IDv6p0t-mNz-nuYk9BX6ydaLC7u1sZvXCnVL0eQdtXsLtR5K8&usqp=CAU"
   };
   final String defaultImageUrl =
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_dmLCyf1S3x-cb98j9cJrURFB_XitfL3hefPuCOofudQCnILKC9iHxhY8D5uMxcel9zI&usqp=CAU";
@@ -68,22 +70,14 @@ class CustomListTile extends StatelessWidget {
                   children: [
                     CircleAvatar(
                       radius: 20,
-                      child: ClipOval(
-                        child: Image(
-                          image: NetworkImage(src1.toString()),
-                        ),
-                      ),
+                      backgroundImage: NetworkImage(src1.toString()),
                     ),
                     // SizedBox(width: 10),
                     Text("V/S"),
                     // SizedBox(width: 10),
                     CircleAvatar(
                       radius: 20,
-                      child: ClipOval(
-                        child: Image(
-                          image: NetworkImage(src2.toString()),
-                        ),
-                      ),
+                      backgroundImage: NetworkImage(src2.toString()),
                     ),
                   ],
                 ),

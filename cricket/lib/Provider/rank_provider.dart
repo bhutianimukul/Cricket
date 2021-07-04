@@ -55,6 +55,9 @@ class RankProvider with ChangeNotifier {
         }
       }
     }
+    print(_odiList);
+    print(_t20List);
+    print(_testList);
     notifyListeners();
   }
 }

@@ -66,19 +66,19 @@ class ScoreProvider with ChangeNotifier {
         //print(score2);
         team1 = score[0].split(" ")[0];
         team2 = score[1].split(" ")[1];
-        print(score1.split(" "));
+        //      print(score1.split(" "));
       } else if (score[1].contains("*")) {
         score1 = score[1];
         score2 = score[0];
         team1 = score[1].split(" ")[1];
         team2 = score[0].split(" ")[0];
-        print(score1.split(" "));
+        //    print(score1.split(" "));
       } else {
         score1 = score[0];
         score2 = score[1];
         team1 = score[0].split(" ")[0];
         team2 = score[1].split(" ")[1];
-        print(score1.split(" "));
+        //  print(score1.split(" "));
       }
 
       // print(score1 + " " + score2);
@@ -96,7 +96,7 @@ class ScoreProvider with ChangeNotifier {
 
     }
 
-    print(_matchList);
+    //  print(_matchList);
     notifyListeners();
   }
 }
