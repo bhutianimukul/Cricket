@@ -3,6 +3,7 @@ import 'package:cricket/screens/main_screen.dart';
 
 import 'package:cricket/screens/news_detail_screen.dart';
 import 'package:cricket/screens/ranking_screen.dart';
+import 'package:cricket/screens/ranking_screen_women.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         routes: {
           NewsDetailScreen.routeName: (_) => NewsDetailScreen(),
           RankingScreen.routeName: (_) => RankingScreen(),
+          RankingWomenScreen.routeName: (_) => RankingWomenScreen(),
         },
       ),
     );

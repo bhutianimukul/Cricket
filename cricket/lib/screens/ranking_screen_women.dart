@@ -1,16 +1,16 @@
 import 'package:cricket/Provider/rank_provider.dart';
-import 'package:cricket/widget/ranking_widget.dart';
+
 import 'package:cricket/widget/tab_widget.dart';
 import "package:flutter/material.dart";
 import 'package:provider/provider.dart';
 
-class RankingScreen extends StatefulWidget {
-  static const routeName = "/ranking";
+class RankingWomenScreen extends StatefulWidget {
+  static const routeName = "/rankingwomen";
   @override
-  _RankingScreenState createState() => _RankingScreenState();
+  _RankingWomenScreenState createState() => _RankingWomenScreenState();
 }
 
-class _RankingScreenState extends State<RankingScreen> {
+class _RankingWomenScreenState extends State<RankingWomenScreen> {
   bool isLoading = false;
   List odirank = [];
   List t20rank = [];
@@ -27,10 +27,10 @@ class _RankingScreenState extends State<RankingScreen> {
     setState(() {
       isLoading = true;
     });
-    await res.fetchRanking();
-    testrank = res.testList;
-    t20rank = res.t20List;
-    odirank = res.odiList;
+    await res.fetchRankingW();
+    testrank = res.testListW;
+    t20rank = res.t20ListW;
+    odirank = res.odiListW;
     setState(() {
       isLoading = false;
     });

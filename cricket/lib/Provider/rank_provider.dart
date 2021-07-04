@@ -23,15 +23,15 @@ class RankProvider with ChangeNotifier {
   }
 
   List<Rank> get odiListW {
-    return [..._odiList];
+    return [..._odiListW];
   }
 
   List<Rank> get t20ListW {
-    return [..._t20List];
+    return [..._t20ListW];
   }
 
   List<Rank> get testListW {
-    return [..._testList];
+    return [..._testListW];
   }
 
   Future<void> fetchRanking() async {
