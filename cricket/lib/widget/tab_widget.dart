@@ -1,3 +1,4 @@
+import 'package:cricket/screens/loading_screen.dart';
 import 'package:cricket/widget/ranking_widget.dart';
 import "package:flutter/material.dart";
 
@@ -21,7 +22,7 @@ class TabWidget extends StatelessWidget {
       length: 3,
       child: isLoading
           ? Center(
-              child: CircularProgressIndicator(),
+              child: Loading(),
             )
           : Scaffold(
               appBar: AppBar(

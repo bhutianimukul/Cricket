@@ -1,3 +1,4 @@
+import 'package:cricket/screens/loading_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:tcard/tcard.dart';
 
@@ -50,7 +51,7 @@ class _SwapCardState extends State<SwapCard> {
             Expanded(
               flex: 10,
               child: widget.cards.length == 0
-                  ? CircularProgressIndicator()
+                  ? Loading()
                   : TCard(
                       cards: widget.cards,
                       size: Size(400, 600),

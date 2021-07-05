@@ -1,5 +1,6 @@
 import 'package:cricket/Provider/score_provider.dart';
 import 'package:cricket/model/match.dart';
+import 'package:cricket/screens/loading_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:provider/provider.dart';
@@ -20,7 +21,7 @@ class _UpcomingTileState extends State<UpcomingTile> {
   @override
   Widget build(BuildContext context) {
     return isLoading == true
-        ? CircularProgressIndicator()
+        ? Loading()
         : Container(
             child: Column(
               children: [

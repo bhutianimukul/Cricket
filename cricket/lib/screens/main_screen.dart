@@ -2,7 +2,7 @@ import 'package:cricket/screens/circular_progress_screen.dart';
 import 'package:cricket/screens/more_screen.dart';
 
 import 'package:cricket/screens/news_screen.dart';
-import 'package:cricket/screens/ranking_screen.dart';
+
 import 'package:fancy_bottom_navigation/fancy_bottom_navigation.dart';
 import "package:flutter/material.dart";
 
@@ -21,8 +21,8 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   final List<Widget> screens = [
-    CircularProgress(),
     NewsScreen(),
+    CircularProgress(),
     MoreScreen(),
   ];
   @override
@@ -37,12 +37,12 @@ class _MainScreenState extends State<MainScreen> {
         // activeIconColor: Colors.greenAccent,
         tabs: [
           TabData(
-            title: "Live",
-            iconData: Icons.home,
-          ),
-          TabData(
             iconData: Icons.search,
             title: "News",
+          ),
+          TabData(
+            title: "Live",
+            iconData: Icons.home,
           ),
           TabData(
             iconData: Icons.more_vert_rounded,

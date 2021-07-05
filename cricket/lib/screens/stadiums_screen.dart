@@ -4,6 +4,8 @@ import 'package:cricket/widget/stadium_widget.dart';
 import "package:flutter/material.dart";
 import 'package:provider/provider.dart';
 
+import 'loading_screen.dart';
+
 class StadiumScreen extends StatefulWidget {
   static const routeName = "/stadium";
 
@@ -42,9 +44,7 @@ class _StadiumScreenState extends State<StadiumScreen> {
           title: Text("Stadiums"),
         ),
         body: isLoading
-            ? Center(
-                child: CircularProgressIndicator(),
-              )
+            ? Loading()
             : ListView.builder(
                 itemCount: stadium.length,
                 itemBuilder: (BuildContext ctx, index) {

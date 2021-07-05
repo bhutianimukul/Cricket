@@ -1,6 +1,7 @@
 import 'package:cricket/Provider/score_provider.dart';
 import 'package:cricket/model/match_detail.dart';
 import 'package:cricket/screens/live_score_screen.dart';
+import 'package:cricket/screens/loading_screen.dart';
 import "package:flutter/material.dart";
 import 'package:provider/provider.dart';
 
@@ -37,7 +38,7 @@ class _CircularProgressState extends State<CircularProgress> {
   @override
   Widget build(BuildContext context) {
     return isLoaded == false
-        ? Center(child: CircularProgressIndicator())
+        ? Loading()
         : LiveScoreScreen(match);
   }
 }

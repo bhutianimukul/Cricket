@@ -1,10 +1,11 @@
 import 'package:cricket/Provider/score_provider.dart';
-import 'package:cricket/widget/SwapCard.dart';
 import 'package:cricket/widget/upcoming_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:cricket/model/match.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:provider/provider.dart';
+
+import 'loading_screen.dart';
 
 class Upcoming extends StatefulWidget {
   static const routeName = "/up";
@@ -44,9 +45,9 @@ class _UpcomingState extends State<Upcoming> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ModalProgressHUD(
-          inAsyncCall: isLoading,
-          child: ListView.builder(
+      body: isLoading
+          ? Loading()
+          : ListView.builder(
               itemBuilder: (_, index) {
                 print(items[index].team1 +
                     items[index].team2 +
@@ -55,7 +56,7 @@ class _UpcomingState extends State<Upcoming> {
                 return UpcomingTile(items[index], items[index].team1Flag,
                     items[index].team2Flag);
               },
-              itemCount: items.length)),
+              itemCount: items.length),
     );
   }
 }

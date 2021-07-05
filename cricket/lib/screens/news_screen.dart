@@ -6,6 +6,8 @@ import "package:flutter/material.dart";
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:provider/provider.dart';
 
+import 'loading_screen.dart';
+
 class NewsScreen extends StatefulWidget {
   @override
   _NewsScreenState createState() => _NewsScreenState();
@@ -41,12 +43,9 @@ class _NewsScreenState extends State<NewsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return ModalProgressHUD(
-      inAsyncCall: isLoading,
-      child: SwapCard(
-        cards: cards,
-        title: 'Cricket News',
-      ),
+    return isLoading==true?Loading():SwapCard(
+      cards: cards,
+      title: 'Cricket News',
     );
   }
 }
