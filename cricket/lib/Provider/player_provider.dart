@@ -21,6 +21,8 @@ class PlayerProvider with ChangeNotifier {
         "https://cricapi.com/api/playerFinder?name=$name&apikey=EgZQBD8hhqPlR5AG1Yr20XpGmgB2"));
     final jsonData = json.decode(response.body);
     final l = jsonData['data'];
+    _idList.clear();
+
     for (int i = 0; i < l.length; i++) {
       if (l[i]['pid'] != 0) {
         _idList.add(Pair(id: l[i]['pid'], name: l[i]['fullName']));
@@ -44,7 +46,11 @@ class PlayerProvider with ChangeNotifier {
     else
       personal["age"] = "";
 
-    if (jsonData.containsKey("born")) personal["born"] = jsonData["born"];
+    if (jsonData.containsKey("born"))
+      personal["born"] = jsonData["born"];
+    else
+      personal["born"] = "";
+
     personal["name"] = jsonData["fullName"];
 
     if (jsonData.containsKey("country"))

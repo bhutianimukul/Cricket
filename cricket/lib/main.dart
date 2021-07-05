@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'Provider/NewsProvider.dart';
+import 'Provider/player_provider.dart';
 import 'Provider/rank_provider.dart';
 import 'Provider/venue_provider.dart';
 import 'screens/upcoming_matches_screen.dart';
@@ -28,7 +29,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<RankProvider>(
             create: (BuildContext context) => RankProvider()),
         ChangeNotifierProvider<VenueProvider>(
-            create: (BuildContext context) => VenueProvider())
+            create: (BuildContext context) => VenueProvider()),
+        ChangeNotifierProvider<PlayerProvider>(
+            create: (BuildContext context) => PlayerProvider())
       ],
       child: MaterialApp(
         home: MainScreen(),
