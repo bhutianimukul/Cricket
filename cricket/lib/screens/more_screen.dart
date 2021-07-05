@@ -1,3 +1,4 @@
+import 'package:cricket/screens/player_search_screen.dart';
 import 'package:cricket/screens/ranking_screen.dart';
 import 'package:cricket/screens/ranking_screen_women.dart';
 import 'package:cricket/screens/stadiums_screen.dart';
@@ -23,7 +24,7 @@ class MoreScreen extends StatelessWidget {
         tile("ICC Ranking Men", RankingScreen.routeName),
         tile("ICC Ranking Women", RankingWomenScreen.routeName),
         tile("Venue", StadiumScreen.routeName),
-        tile("Player Search", RankingScreen.routeName),
+        tile("Player Search", PlayerSearch.routeName),
       ],
     );
   }
