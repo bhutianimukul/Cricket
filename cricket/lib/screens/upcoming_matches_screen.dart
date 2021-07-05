@@ -1,4 +1,5 @@
 import 'package:cricket/Provider/score_provider.dart';
+import 'package:liquid_swipe/liquid_swipe.dart';
 import 'package:cricket/widget/upcoming_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:cricket/model/match.dart';
@@ -33,7 +34,10 @@ class _UpcomingState extends State<Upcoming> {
     });
     await pro.upcomingMatches();
     items = pro.upMatchList;
-
+    for (int i = 0; i < items.length; i++) {
+      cards.add(UpcomingTile(
+          m: items[i], team1: items[i].team1Flag, team2: items[i].team2Flag));
+    }
     setState(() {
       isLoading = false;
     });
@@ -45,18 +49,24 @@ class _UpcomingState extends State<Upcoming> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Upcoming Matches"),
+      ),
       body: isLoading
           ? Loading()
-          : ListView.builder(
-              itemBuilder: (_, index) {
-                print(items[index].team1 +
-                    items[index].team2 +
-                    " " +
-                    items[index].team1Flag);
-                return UpcomingTile(items[index], items[index].team1Flag,
-                    items[index].team2Flag);
-              },
-              itemCount: items.length),
+          : Builder(
+              builder: (context) => LiquidSwipe(
+                initialPage: 0,
+                enableLoop: true,
+                positionSlideIcon: .95,
+                slideIconWidget: Container(
+                  height: 69,
+                  child: Image.network(
+                      "https://media.giphy.com/media/Up7Jqi6HeCzHKfBPYJ/giphy.gif"),
+                ),
+                pages: cards,
+              ),
+            ),
     );
   }
 }
