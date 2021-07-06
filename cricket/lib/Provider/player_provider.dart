@@ -64,9 +64,8 @@ class PlayerProvider with ChangeNotifier {
     return personal;
   }
 
-  Map<String, String> recordData(jsonData) {
-    print(jsonData);
-    final data = jsonData["data"];
+  Map<String, String> recordData(data) {
+    final jsonData = data["data"];
     final batting = jsonData["batting"];
     Map<String, String> record = {};
     print(batting);
