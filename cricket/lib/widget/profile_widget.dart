@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:http/http.dart';
 
 class ProfileWidget extends StatelessWidget {
   late Map<String, String> player;
@@ -12,11 +13,32 @@ class ProfileWidget extends StatelessWidget {
       team += s + ",";
     }
     team += ".";
+    TableRow getRow(String s1, String s2) {
+      return TableRow(children: [
+        Text(
+          s1,
+          style: TextStyle(
+            fontSize: 15,
+            fontWeight: FontWeight.w600,
+            fontStyle: FontStyle.italic,
+          ),
+        ),
+        Text(
+          s2,
+          style: TextStyle(
+            fontSize: 15,
+            fontWeight: FontWeight.w400,
+          ),
+        ),
+      ]);
+    }
+
     return Container(
-      padding: EdgeInsets.all(20),
+      color: Colors.grey[400],
+      padding: EdgeInsets.symmetric(horizontal: 10),
       child: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Center(
               child: CircleAvatar(
@@ -30,60 +52,78 @@ class ProfileWidget extends StatelessWidget {
                 player["name"].toString(),
                 style: TextStyle(
                   fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  fontStyle: FontStyle.italic,
                 ),
               ),
             ),
-            Text(
-              "DOB: " + player["born"].toString(),
-              style: TextStyle(
-                fontSize: 18,
-              ),
+            SizedBox(
+              height: 30,
             ),
             Text(
-              "Age : " + player["age"].toString().substring(0, 8) + ".",
+              "Player Information",
               style: TextStyle(
-                fontSize: 18,
-              ),
-            ),
-            Text(
-              "Country : " + player["country"].toString(),
-              style: TextStyle(
-                fontSize: 18,
-              ),
-            ),
-            Text(
-              "Role : " + player["playingRole"].toString(),
-              style: TextStyle(
-                fontSize: 18,
-              ),
-            ),
-            Text(
-              "Team Played With : ",
-              style: TextStyle(
-                fontSize: 18,
-              ),
-            ),
-            Text(
-              "\t" + team,
-              style: TextStyle(
-                fontSize: 18,
+                fontSize: 20,
+                //fontWeight: FontWeight.bold,
+                fontStyle: FontStyle.italic,
               ),
             ),
             SizedBox(
-              height: 10,
+              height: 20,
+            ),
+            Table(
+              border: TableBorder(
+                  horizontalInside: BorderSide(
+                      width: 1, color: Colors.blue, style: BorderStyle.solid)),
+              columnWidths: const <int, TableColumnWidth>{
+                0: FixedColumnWidth(100),
+                1: IntrinsicColumnWidth(),
+              },
+              defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+              children: <TableRow>[
+                getRow(
+                  "DOB:",
+                  player["born"].toString(),
+                ),
+                getRow(
+                  "Age:",
+                  player["age"].toString().substring(0, 8) + ".",
+                ),
+                getRow(
+                  "Country:",
+                  player["country"].toString(),
+                ),
+                getRow(
+                  "Role:",
+                  player["playingRole"].toString(),
+                ),
+                getRow(
+                  "Teams :",
+                  team,
+                ),
+                getRow("", ""),
+              ],
+            ),
+            SizedBox(
+              height: 30,
             ),
             Center(
               child: Text(
                 "Desctription",
                 style: TextStyle(
-                  fontSize: 18,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                  fontStyle: FontStyle.italic,
                 ),
               ),
             ),
-            Text(
-              player["profile"].toString(),
-              style: TextStyle(
-                fontSize: 15,
+            Container(
+              padding: EdgeInsets.all(10),
+              child: Text(
+                player["profile"].toString(),
+                style: TextStyle(
+                  fontSize: 15,
+                ),
               ),
             ),
           ],

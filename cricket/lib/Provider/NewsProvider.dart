@@ -11,8 +11,10 @@ class NewsProvider with ChangeNotifier {
 
   Future<void> fetchNews() async {
     _newsList.clear();
+    DateTime date1 = DateTime.now();
+    String date = date1.toString().substring(0, 10);
     final url =
-        "https://newsapi.org/v2/everything?q=cricket AND Cricket AND game&apiKey=13f96319dae94b739e554e8dad8d676a&qInTitle=Cricket AND Sports";
+        "https://newsapi.org/v2/everything?q=cricket&apiKey=13f96319dae94b739e554e8dad8d676a&from=$date";
     final response = await http.get(Uri.parse(url));
     final jsonData = json.decode(response.body);
 

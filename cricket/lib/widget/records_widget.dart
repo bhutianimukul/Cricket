@@ -9,7 +9,7 @@ class RecordWidget extends StatelessWidget {
     TableRow tableRow(String p1, String p2, String p3, String p4) {
       return TableRow(
         decoration: const BoxDecoration(
-          color: Colors.grey,
+          color: Colors.white54,
         ),
         children: [
           Container(
@@ -43,49 +43,58 @@ class RecordWidget extends StatelessWidget {
     print(record);
     print(record["odiRuns"]);
     print(record["odiW"]);
-    return Table(
-      border: TableBorder.all(),
-      columnWidths: const <int, TableColumnWidth>{
-        0: IntrinsicColumnWidth(),
-        1: FixedColumnWidth(60),
-        2: FixedColumnWidth(60),
-        3: FixedColumnWidth(60),
-      },
-      defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-      children: <TableRow>[
-        TableRow(
-          children: <Widget>[
-            Container(
-              padding: EdgeInsets.all(10),
-              child: Center(
-                child: Text(""),
+    return Container(
+      color: Colors.green[100],
+      child: Table(
+        border: TableBorder.all(),
+        columnWidths: const <int, TableColumnWidth>{
+          0: IntrinsicColumnWidth(),
+          1: FixedColumnWidth(60),
+          2: FixedColumnWidth(60),
+          3: FixedColumnWidth(60),
+        },
+        defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+        children: <TableRow>[
+          TableRow(
+            children: <Widget>[
+              Container(
+                padding: EdgeInsets.all(10),
+                child: Center(
+                  child: Text(""),
+                ),
               ),
-            ),
-            Container(
-              width: 30,
-              child: Center(
-                child: Text("Test"),
+              Container(
+                width: 30,
+                child: Center(
+                  child: Text("Test"),
+                ),
               ),
-            ),
-            Container(
-              child: Center(
-                child: Text("ODI"),
+              Container(
+                child: Center(
+                  child: Text("ODI"),
+                ),
               ),
-            ),
-            Container(
-              child: Center(
-                child: Text("T20"),
+              Container(
+                child: Center(
+                  child: Text("T20"),
+                ),
               ),
-            ),
-          ],
-        ),
-        tableRow("Matches", "Test", "Test", "Test"),
-        tableRow("Runs", "Test", "Test", "Test"),
-        tableRow("Avg", "Test", "Test", "Test"),
-        tableRow("50's", "Test", "Test", "Test"),
-        tableRow("100's", "Test", "Test", "Test"),
-        tableRow("Highest Score", "Test", "Test", "Test"),
-      ],
+            ],
+          ),
+          tableRow("Matches", record["testMat"].toString(),
+              record["odiMat"].toString(), record["t20Mat"].toString()),
+          tableRow("Runs", record["testRuns"].toString(),
+              record["odiRuns"].toString(), record["t20Runs"].toString()),
+          tableRow("Avg", record["testAvg"].toString(),
+              record["odiAvg"].toString(), record["t20Avg"].toString()),
+          tableRow("50's", record["test50"].toString(),
+              record["odi50"].toString(), record["t2050"].toString()),
+          tableRow("100's", record["test100"].toString(),
+              record["odi100"].toString(), record["t20100"].toString()),
+          tableRow("Highest Score", record["testHs"].toString(),
+              record["odiHs"].toString(), record["t20Hs"].toString()),
+        ],
+      ),
     );
   }
 }
