@@ -1,6 +1,7 @@
 import 'package:cricket/model/player.dart';
 import 'package:cricket/widget/profile_widget.dart';
 import 'package:cricket/widget/records_widget.dart';
+import 'package:cricket/widget/stats_widget.dart';
 import "package:flutter/material.dart";
 
 class PLayerTabWidget extends StatelessWidget {
@@ -33,7 +34,7 @@ class PLayerTabWidget extends StatelessWidget {
               player: player.personal,
               majorTeams: player.majorTeams,
             ),
-            RecordWidget(record: player.records),
+            StatsWidget(player.records),
           ],
         ),
       ),

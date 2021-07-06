@@ -69,7 +69,7 @@ class PlayerProvider with ChangeNotifier {
     final batting = jsonData["batting"];
     Map<String, String> record = {};
     print(batting);
-    //if (batting == null) return record;
+    if (batting == null) return record;
     if (batting.containsKey("T20Is"))
       record["t20Runs"] = batting["T20Is"]["Runs"];
     else

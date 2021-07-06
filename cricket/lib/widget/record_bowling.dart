@@ -1,8 +1,8 @@
 import "package:flutter/material.dart";
 
-class RecordWidget extends StatelessWidget {
+class RecordBowlingWidget extends StatelessWidget {
   late Map<String, String> record;
-  RecordWidget({required this.record});
+  RecordBowlingWidget({required this.record});
 
   @override
   Widget build(BuildContext context) {
@@ -80,11 +80,11 @@ class RecordWidget extends StatelessWidget {
           ],
         ),
         tableRow("Matches", "Test", "Test", "Test"),
-        tableRow("Runs", "Test", "Test", "Test"),
+        tableRow("Wickets", "Test", "Test", "Test"),
         tableRow("Avg", "Test", "Test", "Test"),
-        tableRow("50's", "Test", "Test", "Test"),
-        tableRow("100's", "Test", "Test", "Test"),
-        tableRow("Highest Score", "Test", "Test", "Test"),
+        tableRow("Economy", "Test", "Test", "Test"),
+        tableRow("Best", "Test", "Test", "Test"),
+        tableRow("5 W", "Test", "Test", "Test"),
       ],
     );
   }
