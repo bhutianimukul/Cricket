@@ -1,7 +1,9 @@
 import 'package:cricket/Provider/score_provider.dart';
+import 'package:cricket/model/player.dart';
 import 'package:cricket/screens/main_screen.dart';
 
 import 'package:cricket/screens/news_detail_screen.dart';
+import 'package:cricket/screens/player_detail_screen.dart';
 import 'package:cricket/screens/player_search_screen.dart';
 import 'package:cricket/screens/ranking_screen.dart';
 import 'package:cricket/screens/ranking_screen_women.dart';
@@ -42,6 +44,7 @@ class MyApp extends StatelessWidget {
           StadiumScreen.routeName: (_) => StadiumScreen(),
           Upcoming.routeName: (_) => Upcoming(),
           PlayerSearch.routeName: (_) => PlayerSearch(),
+          PlayerDetailScreen.routeName: (_) => PlayerDetailScreen(),
         },
       ),
     );

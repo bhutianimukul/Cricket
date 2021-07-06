@@ -33,7 +33,7 @@ class PlayerProvider with ChangeNotifier {
 
   Map<String, String> personalData(jsonData) {
     Map<String, String> personal = {};
-    if (jsonData.containsKey("profile"))
+    if (jsonData.containsKey("profile") && jsonData["profile"] != null)
       personal["profile"] = jsonData["profile"];
     else
       personal["profile"] = "";
@@ -41,23 +41,23 @@ class PlayerProvider with ChangeNotifier {
       personal["imageUrl"] = jsonData["imageURL"];
     else
       personal["imageUrl"] = "";
-    if (jsonData.containsKey("currentAge"))
+    if (jsonData.containsKey("currentAge") && jsonData["currentAge"] != null)
       personal["age"] = jsonData["currentAge"];
     else
       personal["age"] = "";
 
-    if (jsonData.containsKey("born"))
+    if (jsonData.containsKey("born") && jsonData["born"] != null)
       personal["born"] = jsonData["born"];
     else
       personal["born"] = "";
 
     personal["name"] = jsonData["fullName"];
 
-    if (jsonData.containsKey("country"))
+    if (jsonData.containsKey("country") && jsonData["country"] != null)
       personal["country"] = jsonData["country"];
     else
       personal["country"] = "";
-    if (jsonData.containsKey("playingRole"))
+    if (jsonData.containsKey("playingRole") && jsonData["playingRole"] != null)
       personal["playingRole"] = jsonData["playingRole"];
     else
       personal["playingRole"] = "";
@@ -65,9 +65,12 @@ class PlayerProvider with ChangeNotifier {
   }
 
   Map<String, String> recordData(jsonData) {
+    print(jsonData);
     final data = jsonData["data"];
     final batting = jsonData["batting"];
     Map<String, String> record = {};
+    print(batting);
+    //if (batting == null) return record;
     if (batting.containsKey("T20Is"))
       record["t20Runs"] = batting["T20Is"]["Runs"];
     else
@@ -103,7 +106,7 @@ class PlayerProvider with ChangeNotifier {
         "https://cricapi.com/api/playerStats?pid=$id&apikey=EgZQBD8hhqPlR5AG1Yr20XpGmgB2"));
     final jsonData = json.decode(response.body);
 
-    List<String> majorTeams = jsonData["majorTeams"];
+    List<String> majorTeams = jsonData["majorTeams"].split(",");
 
     Player p = Player(
         personal: personalData(jsonData),

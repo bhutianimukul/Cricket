@@ -1,4 +1,6 @@
 import 'package:cricket/Provider/player_provider.dart';
+import 'package:cricket/model/player.dart';
+import 'package:cricket/screens/player_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -34,6 +36,11 @@ class _PlayerSearchState extends State<PlayerSearch> {
 
   @override
   Widget build(BuildContext context) {
+    Future<Player> getPlayer(int id) async {
+      return await Provider.of<PlayerProvider>(context, listen: false)
+          .fetchById(id);
+    }
+
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -78,7 +85,14 @@ class _PlayerSearchState extends State<PlayerSearch> {
                 itemCount: playerList.length,
                 itemBuilder: (_, index) => ListTile(
                   title: Text(playerList[index].name),
-                  onLongPress: () {},
+                  onLongPress: () async {
+                    Player p = await getPlayer(playerList[index].id);
+                    Navigator.pushNamed(
+                      context,
+                      PlayerDetailScreen.routeName,
+                      arguments: p,
+                    );
+                  },
                 ),
               ),
             ),
