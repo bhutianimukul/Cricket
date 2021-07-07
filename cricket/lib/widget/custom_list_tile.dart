@@ -48,8 +48,10 @@ class CustomListTile extends StatelessWidget {
     } else
       src2 = defaultImageUrl;
 
-    // print(match.otherTeamScore.split(" "));
-    // print(match.currentTeam + " " + match.otherTeam);
+    print(match.otherTeamScore.split(" "));
+    print(match.currentTeamScore.split(" "));
+
+    //print(match.currentTeam + " " + match.otherTeam);
     List<String> temp = match.currentTeamScore.split(" ");
     String curTeamScore = temp[temp.length - 2] + temp[temp.length - 1];
     String curTeamName = "";
@@ -62,7 +64,7 @@ class CustomListTile extends StatelessWidget {
     for (int i = 0; i < temp.length - 1; i++) othTeamName += temp[i];
     // print(othTeamName + " " + othTeamScore);
 
-    //  print(curTeamName + " " + curTeamScore);
+    // print(curTeamName + " " + curTeamScore);
 
     return InkWell(
       child: Column(
@@ -91,7 +93,7 @@ class CustomListTile extends StatelessWidget {
                         Text(
                           curTeamName,
                           style: TextStyle(
-                            fontSize: 17,
+                            fontSize: 12,
                             color: Colors.black,
                             fontWeight: FontWeight.w600,
                           ),
@@ -99,7 +101,7 @@ class CustomListTile extends StatelessWidget {
                         Text(
                           curTeamScore,
                           style: TextStyle(
-                            fontSize: 17,
+                            fontSize: 12,
                             color: Colors.black,
                             fontWeight: FontWeight.w600,
                           ),
@@ -123,7 +125,7 @@ class CustomListTile extends StatelessWidget {
                         Text(
                           othTeamName,
                           style: TextStyle(
-                            fontSize: 17,
+                            fontSize: 12,
                             color: Colors.black,
                             fontWeight: FontWeight.w600,
                           ),
@@ -131,7 +133,7 @@ class CustomListTile extends StatelessWidget {
                         Text(
                           othTeamScore,
                           style: TextStyle(
-                            fontSize: 17,
+                            fontSize: 12,
                             color: Colors.black,
                             fontWeight: FontWeight.w600,
                           ),
@@ -140,7 +142,11 @@ class CustomListTile extends StatelessWidget {
                     ),
                   ],
                 ),
-                Text(match.winner),
+                Text(match.winner,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w600,
+                    )),
               ],
             ),
           ),

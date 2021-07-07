@@ -43,7 +43,7 @@ class _NewsScreenState extends State<NewsScreen> {
   @override
   Widget build(BuildContext context) {
     return isLoading == true
-        ? Loading()
+        ? Center(child: CircularProgressIndicator())
         : SwapCard(
             cards: cards,
             title: 'Cricket News',
