@@ -36,6 +36,7 @@ class MyApp extends StatelessWidget {
             create: (BuildContext context) => PlayerProvider())
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: MainScreen(),
         routes: {
           NewsDetailScreen.routeName: (_) => NewsDetailScreen(),
