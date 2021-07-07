@@ -13,7 +13,13 @@ class MoreScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget tile(String title, String routeName) {
       return ListTile(
-        title: Text(title),
+        title: Text(
+          title,
+          style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
         onTap: () => Navigator.pushNamed(context, routeName),
       );
     }

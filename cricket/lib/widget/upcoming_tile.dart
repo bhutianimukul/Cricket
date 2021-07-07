@@ -44,7 +44,7 @@ class _UpcomingTileState extends State<UpcomingTile> {
             elevation: 5,
             color: getColor(),
             child: Container(
-              padding: EdgeInsets.symmetric(vertical: 50, horizontal: 10),
+              padding: EdgeInsets.symmetric(vertical: 30, horizontal: 10),
               child: Column(
                 children: [
                   Text(
@@ -66,7 +66,14 @@ class _UpcomingTileState extends State<UpcomingTile> {
                   ),
                   Container(
                     padding: EdgeInsets.all(10),
-                    child: Image.network(widget.team1),
+                    //height: MediaQuery.of(context).size.height * .3,
+                    width: MediaQuery.of(context).size.width * .7,
+                    child: Image.network(
+                      widget.team1,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
                   ),
                   Text(
                     "${widget.m.team2.toUpperCase()}",
@@ -85,7 +92,8 @@ class _UpcomingTileState extends State<UpcomingTile> {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.all((10)),
+                    //height: MediaQuery.of(context).size.height * .4,
+                    width: MediaQuery.of(context).size.width * .7,
                     child: Image.network(widget.team2),
                   ),
                   Text(

@@ -36,20 +36,21 @@ class PlayerProvider with ChangeNotifier {
     if (jsonData.containsKey("profile") && jsonData["profile"] != null)
       personal["profile"] = jsonData["profile"];
     else
-      personal["profile"] = "";
-    if (jsonData.containsKey("imageURL"))
+      personal["profile"] = "Nodata";
+    if (jsonData.containsKey("imageURL") && jsonData["imageURL"] != null)
       personal["imageUrl"] = jsonData["imageURL"];
     else
-      personal["imageUrl"] = "";
+      personal["imageUrl"] =
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjmefPkNFco4Av1uI7UTjwzGk44EAXl_QNEA&usqp=CAU";
     if (jsonData.containsKey("currentAge") && jsonData["currentAge"] != null)
       personal["age"] = jsonData["currentAge"];
     else
-      personal["age"] = "";
+      personal["age"] = "No data  found ";
 
     if (jsonData.containsKey("born") && jsonData["born"] != null)
       personal["born"] = jsonData["born"];
     else
-      personal["born"] = "";
+      personal["born"] = "No data found";
 
     personal["name"] = jsonData["fullName"];
 
@@ -68,7 +69,7 @@ class PlayerProvider with ChangeNotifier {
     final jsonData = data["data"];
     final batting = jsonData["batting"];
     Map<String, String> record = {};
-    print(batting);
+    // print(batting);
     if (batting == null) return record;
     if (batting.containsKey("T20Is"))
       record["t20Runs"] = batting["T20Is"]["Runs"];
@@ -216,6 +217,7 @@ class PlayerProvider with ChangeNotifier {
     final jsonData = json.decode(response.body);
 
     List<String> majorTeams = jsonData["majorTeams"].split(",");
+    if (majorTeams.length == 0) majorTeams = ["NoData"];
 
     Player p = Player(
         personal: personalData(jsonData),

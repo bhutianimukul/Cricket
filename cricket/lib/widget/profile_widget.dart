@@ -1,5 +1,4 @@
 import "package:flutter/material.dart";
-import 'package:http/http.dart';
 
 class ProfileWidget extends StatelessWidget {
   late Map<String, String> player;
@@ -8,10 +7,13 @@ class ProfileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(player);
+
     String team = "";
     for (String s in majorTeams) {
       team += s + ",";
     }
+    print(team);
     team += ".";
     TableRow getRow(String s1, String s2) {
       return TableRow(children: [

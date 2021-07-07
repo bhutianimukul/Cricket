@@ -27,7 +27,7 @@ class _SwapCardState extends State<SwapCard> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.green.shade200,
+        // backgroundColor: Colors.green.shade200,
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.stretch,

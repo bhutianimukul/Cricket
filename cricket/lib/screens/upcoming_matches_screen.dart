@@ -3,7 +3,6 @@ import 'package:liquid_swipe/liquid_swipe.dart';
 import 'package:cricket/widget/upcoming_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:cricket/model/match.dart';
-import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:provider/provider.dart';
 
 import 'loading_screen.dart';

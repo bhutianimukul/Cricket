@@ -1,5 +1,4 @@
 import 'package:cricket/Provider/rank_provider.dart';
-import 'package:cricket/widget/ranking_widget.dart';
 import 'package:cricket/widget/tab_widget.dart';
 import "package:flutter/material.dart";
 import 'package:provider/provider.dart';

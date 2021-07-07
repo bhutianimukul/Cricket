@@ -1,6 +1,6 @@
 import 'package:cricket/model/player.dart';
 import 'package:cricket/widget/profile_widget.dart';
-import 'package:cricket/widget/records_widget.dart';
+
 import 'package:cricket/widget/stats_widget.dart';
 import "package:flutter/material.dart";
 

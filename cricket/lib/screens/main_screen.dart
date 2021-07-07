@@ -31,7 +31,7 @@ class _MainScreenState extends State<MainScreen> {
       appBar: AppBar(
         title: Center(
           child: Text(
-            "Circket App",
+            "Circket Connect",
             style: TextStyle(
               fontSize: 25,
               // fontWeight: FontWeight.w600,
@@ -47,6 +47,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ),
       ),
+
       body: screens[currentIndex], //screens[currentIndex],
       bottomNavigationBar: FancyBottomNavigation(
         //  circleColor: Colors.green,

@@ -7,7 +7,7 @@ class Loading extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Image.network(
-          "https://media.giphy.com/media/HbwreR506SSwsIpPDO/giphy.gif"),
+          "https://media.giphy.com/media/TLCZw6Uwwly6b9ekKb/giphy.gif"),
     );
   }
 }

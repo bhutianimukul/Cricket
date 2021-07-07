@@ -1,5 +1,5 @@
 import 'package:cricket/Provider/score_provider.dart';
-import 'package:cricket/model/player.dart';
+
 import 'package:cricket/screens/main_screen.dart';
 
 import 'package:cricket/screens/news_detail_screen.dart';
@@ -46,6 +46,16 @@ class MyApp extends StatelessWidget {
           PlayerSearch.routeName: (_) => PlayerSearch(),
           PlayerDetailScreen.routeName: (_) => PlayerDetailScreen(),
         },
+        theme: ThemeData(
+            // Define the default brightness and colors.
+            brightness: Brightness.dark,
+            primaryColor: Color(0xff053742),
+            accentColor: Color(0xff39A2DB),
+            canvasColor: Color(0xffA2DBFA),
+            // highlightColor: Color(0xffE8F0F2),
+
+            // Define the default font family.
+            fontFamily: 'Georgia'),
       ),
     );
   }
