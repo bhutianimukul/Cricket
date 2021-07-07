@@ -48,15 +48,27 @@ class CustomListTile extends StatelessWidget {
     } else
       src2 = defaultImageUrl;
 
+    // print(match.otherTeamScore.split(" "));
+    // print(match.currentTeam + " " + match.otherTeam);
+    List<String> temp = match.currentTeamScore.split(" ");
+    String curTeamScore = temp[temp.length - 2] + temp[temp.length - 1];
+    String curTeamName = "";
+    for (int i = 0; i < temp.length - 2; i++) curTeamName += temp[i];
+    temp = match.otherTeamScore.split(" ");
+    String othTeamScore =
+        temp[temp.length - 1] == "" ? "-" : temp[temp.length - 1];
+
+    String othTeamName = "";
+    for (int i = 0; i < temp.length - 1; i++) othTeamName += temp[i];
+    // print(othTeamName + " " + othTeamScore);
+
+    //  print(curTeamName + " " + curTeamScore);
+
     return InkWell(
-      onDoubleTap: () {
-        print(match.currentTeam);
-        print(match.otherTeam);
-      },
       child: Column(
         children: [
           Container(
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.all(8),
             // color: Colors.white,
             decoration: BoxDecoration(
               color: Colors.white,
@@ -65,62 +77,53 @@ class CustomListTile extends StatelessWidget {
             child: Column(
               children: [
                 Row(
-                  // crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    CircleAvatar(
-                      radius: 20,
-                      backgroundImage: NetworkImage(src1.toString()),
+                    Column(
+                      children: [
+                        CircleAvatar(
+                          radius: 23,
+                          backgroundImage: NetworkImage(src1.toString()),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          curTeamName,
+                          style: TextStyle(fontSize: 17),
+                        ),
+                        Text(
+                          curTeamScore,
+                          style: TextStyle(fontSize: 17),
+                        ),
+                      ],
                     ),
-                    // SizedBox(width: 10),
-                    Text("V/S"),
-                    // SizedBox(width: 10),
-                    CircleAvatar(
-                      radius: 20,
-                      backgroundImage: NetworkImage(src2.toString()),
+                    Text("VS"),
+                    Column(
+                      children: [
+                        CircleAvatar(
+                          radius: 23,
+                          backgroundImage: NetworkImage(src2.toString()),
+                        ),
+                        Text(
+                          othTeamName,
+                          style: TextStyle(fontSize: 17),
+                        ),
+                        Text(
+                          othTeamScore,
+                          style: TextStyle(fontSize: 17),
+                        ),
+                      ],
                     ),
                   ],
                 ),
-                SizedBox(
-                  height: 10,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Flexible(
-                      fit: FlexFit.loose,
-                      child: Text(match.currentTeamScore,
-                          style: TextStyle(fontSize: 15),
-                          softWrap: false,
-                          overflow: TextOverflow.ellipsis),
-                    ),
-                    Text(
-                      "-",
-                      style: TextStyle(fontSize: 19),
-                    ),
-                    Flexible(
-                      fit: FlexFit.loose,
-                      child: Text(
-                        match.otherTeamScore,
-                        style: TextStyle(fontSize: 15),
-                        softWrap: false,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 8,
-                ),
-                Center(
-                  child: Text(match.winner),
-                ),
+                Text(match.winner),
               ],
             ),
           ),
-          SizedBox(
-            height: 10,
-          )
+          // SizedBox(
+          //   height: 3,
+          // )
         ],
       ),
     );

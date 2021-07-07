@@ -7,24 +7,33 @@ class LiveScoreScreen extends StatelessWidget {
   LiveScoreScreen(this.match);
   @override
   Widget build(BuildContext context) {
+    MatchDetail live = match[0];
+    // match.remove(live);
     return Container(
+      color: Colors.grey[350],
       child: Column(
         children: [
           //  first match score by time
 
           Container(
             width: double.infinity,
-            height: MediaQuery.of(context).size.height * .215,
+            height: MediaQuery.of(context).size.height * .22,
             padding: EdgeInsets.all(10),
             // decoration: BoxDecoration(borderRadius: BorderRadius.),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "Live Score",
-                  style: TextStyle(fontSize: 20),
+                Center(
+                  child: Text(
+                    "Live Match",
+                    style: TextStyle(
+                      fontSize: 17,
+                      fontWeight: FontWeight.w600,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
                 ),
-                CustomListTile(match[0]),
+                CustomListTile(live),
               ],
             ),
           ),
@@ -40,9 +49,40 @@ class LiveScoreScreen extends StatelessWidget {
                 ),
               ),
               //color: Colors.green,
-              child: ListView.builder(
-                itemCount: match.length,
-                itemBuilder: (_, index) => CustomListTile(match[index]),
+              child: Column(
+                children: [
+                  Text(
+                    "Other Live Matches",
+                    style: TextStyle(
+                      fontSize: 17,
+                      fontWeight: FontWeight.w600,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Expanded(
+                    child: Container(
+                      child: match.length == 1
+                          ? Center(
+                              child: Text(
+                                "No Live Match Available",
+                                style: TextStyle(
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.w600,
+                                  fontStyle: FontStyle.italic,
+                                ),
+                              ),
+                            )
+                          : ListView.builder(
+                              itemCount: match.length - 1,
+                              itemBuilder: (_, index) =>
+                                  CustomListTile(match[index + 1]),
+                            ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
